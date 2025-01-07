@@ -2,6 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+    // Ensure correct asset paths for deployment
+    base: '/', // Ensure this is the correct base path where your app is hosted
+
     optimizeDeps: {
         include: [
             '@emotion/react',
@@ -10,11 +13,11 @@ export default defineConfig({
         ],
     },
     plugins: [react({
-            jsxImportSource: '@emotion/react',
-            babel: {
-                plugins: ['@emotion/babel-plugin'],
-            },
-        })],
+        jsxImportSource: '@emotion/react',
+        babel: {
+            plugins: ['@emotion/babel-plugin'],
+        },
+    })],
 
     // Additional build optimizations
     build: {
